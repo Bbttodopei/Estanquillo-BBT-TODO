@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otros Licores - BBT TODO</title>
+    <style>
+        /* Estilos generales (copiar desde la plantilla base) */
+    </style>
+</head>
+<body>
+    <h1>Otros Licores</h1>
+    <div class="producto">
+        <!-- Producto 1 -->
+        <div class="item">
+            <img src="licor1.jpg" alt="Ginebra Tanqueray">
+            <h3>Ginebra Tanqueray</h3>
+            <p>$90.000</p>
+            <button onclick="comprar('Ginebra Tanqueray')">Comprar</button>
+        </div>
+        <!-- Producto 2 -->
+        <div class="item">
+            <img src="licor2.jpg" alt="Vermú Martini">
+            <h3>Vermú Martini</h3>
+            <p>$40.000</p>
+            <button onclick="comprar('Vermú Martini')">Comprar</button>
+        </div>
+        <!-- Producto 3 -->
+        <div class="item">
+            <img src="licor3.jpg" alt="Brandy Terry">
+            <h3>Brandy Terry</h3>
+            <p>$60.000</p>
+            <button onclick="comprar('Brandy Terry')">Comprar</button>
+        </div>
+    </div>
+    <div class="volver">
+        <a href="index.html">Volver al inicio</a>
+    </div>
+
+    <script>
+        function comprar(producto) {
+            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
+            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
