@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vodka - BBT TODO</title>
+    <style>
+        /* Estilos generales (copiar desde la plantilla base) */
+    </style>
+</head>
+<body>
+    <h1>Vodka</h1>
+    <div class="producto">
+        <!-- Producto 1 -->
+        <div class="item">
+            <img src="vodka1.jpg" alt="Vodka Smirnoff">
+            <h3>Vodka Smirnoff</h3>
+            <p>$50.000</p>
+            <button onclick="comprar('Vodka Smirnoff')">Comprar</button>
+        </div>
+        <!-- Producto 2 -->
+        <div class="item">
+            <img src="vodka2.jpg" alt="Vodka Absolut">
+            <h3>Vodka Absolut</h3>
+            <p>$60.000</p>
+            <button onclick="comprar('Vodka Absolut')">Comprar</button>
+        </div>
+        <!-- Producto 3 -->
+        <div class="item">
+            <img src="vodka3.jpg" alt="Vodka Grey Goose">
+            <h3>Vodka Grey Goose</h3>
+            <p>$120.000</p>
+            <button onclick="comprar('Vodka Grey Goose')">Comprar</button>
+        </div>
+    </div>
+    <div class="volver">
+        <a href="index.html">Volver al inicio</a>
+    </div>
+
+    <script>
+        function comprar(producto) {
+            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
+            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
