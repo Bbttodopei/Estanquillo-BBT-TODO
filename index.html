@@ -15,17 +15,16 @@
             line-height: 1.6;
         }
 
-        /* Encabezado con logo */
+        /* Encabezado con banner */
         header {
             background-color: #ff8c42; /* Fondo naranja */
-            padding: 0; /* Eliminamos el padding */
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 300px; /* Altura del encabezado */
+            overflow: hidden; /* Evita que la imagen se desborde */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 500px; /* Altura del encabezado */
-            overflow: hidden; /* Evita que la imagen se desborde */
         }
 
         header img {
@@ -41,6 +40,9 @@
             background-color: #333;
             padding: 10px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: white;
@@ -79,17 +81,16 @@
 
         /* Productos */
         .productos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            padding: 20px;
         }
         .producto {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 30%;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -111,92 +112,49 @@
             font-size: 1.2em;
             color: #666;
         }
-
-        /* Botones de contacto */
-        .contacto-contenedor {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .boton-contacto {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            height: 60px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
+        .producto button {
+            background-color: #ff8c42;
             color: white;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .boton-contacto:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-        .boton-contacto.whatsapp {
-            background-color: #25D366; /* Color de WhatsApp */
-        }
-        .boton-contacto.facebook {
-            background-color: #1877F2; /* Color de Facebook */
-        }
-        .boton-contacto.instagram {
-            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FFDC80); /* Degradado de Instagram */
-        }
-        .boton-contacto i {
-            margin-right: 10px; /* Espacio entre el ícono y el texto */
+        .producto button:hover {
+            background-color: #e67e22;
         }
 
-        /* Botón de Ubicación */
-        .boton-ubicacion {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #EA4335; /* Color rojo de Google Maps */
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 300px;
-        }
-        .boton-ubicacion:hover {
-            background-color: #D32F2F; /* Rojo más oscuro */
-            transform: translateY(-5px);
-        }
-        .boton-ubicacion i {
-            margin-right: 10px; /* Espacio entre el ícono y el texto */
-        }
-
-        /* Formulario de registro y reseñas */
-        .formulario-resenas {
+        /* Sección de Reseñas */
+        #reseñas {
             background-color: white;
-            padding: 20px;
+            padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 40px auto;
+        }
+        .formulario-resenas {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .formulario-resenas label {
-            display: block;
-            margin-bottom: 10px;
             font-weight: bold;
+            font-size: 1.1em;
         }
         .formulario-resenas input,
         .formulario-resenas textarea {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
+        }
+        .formulario-resenas textarea {
+            resize: vertical; /* Permite redimensionar verticalmente */
+            min-height: 100px;
         }
         .formulario-resenas button {
             background-color: #ff8c42;
@@ -251,8 +209,8 @@
 
         /* Diseño responsive */
         @media (max-width: 768px) {
-            .producto {
-                width: 100%;
+            .productos {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
             header h1 {
                 font-size: 2em;
@@ -262,14 +220,6 @@
             }
             .horarios {
                 width: 100%;
-            }
-            .boton-contacto {
-                width: 100%;
-                max-width: 300px;
-            }
-            .boton-ubicacion {
-                width: 100%;
-                max-width: none;
             }
         }
     </style>
@@ -302,32 +252,63 @@
     <section id="productos">
         <h2>Productos</h2>
         <div class="productos">
-            <!-- Productos aquí -->
+            <!-- Producto 1: Ron -->
+            <div class="producto">
+                <img src="ron.jpg" alt="Ron">
+                <h3>Ron</h3>
+                <p>Variedad de marcas y precios.</p>
+                <a href="ron.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 2: Aguardiente -->
+            <div class="producto">
+                <img src="aguardiente.jpg" alt="Aguardiente">
+                <h3>Aguardiente</h3>
+                <p>Las mejores marcas nacionales.</p>
+                <a href="aguardiente.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 3: Whisky -->
+            <div class="producto">
+                <img src="whisky.jpg" alt="Whisky">
+                <h3>Whisky</h3>
+                <p>Importados y nacionales.</p>
+                <a href="whisky.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 4: Vodka -->
+            <div class="producto">
+                <img src="vodka.jpg" alt="Vodka">
+                <h3>Vodka</h3>
+                <p>Marcas premium y estándar.</p>
+                <a href="vodka.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 5: Cervezas -->
+            <div class="producto">
+                <img src="cervezas.jpg" alt="Cervezas">
+                <h3>Cervezas</h3>
+                <p>Nacionales e importadas.</p>
+                <a href="cervezas.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 6: Tequila -->
+            <div class="producto">
+                <img src="tequila.jpg" alt="Tequila">
+                <h3>Tequila</h3>
+                <p>Marcas reconocidas.</p>
+                <a href="tequila.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 7: Cocteles en Lata -->
+            <div class="producto">
+                <img src="cocteles.jpg" alt="Cocteles en Lata">
+                <h3>Cocteles en Lata</h3>
+                <p>Four Loko y más.</p>
+                <a href="cocteles.html"><button>Ver más</button></a>
+            </div>
+            <!-- Producto 8: Otros Licores -->
+            <div class="producto">
+                <img src="otros-licores.jpg" alt="Otros Licores">
+                <h3>Otros Licores</h3>
+                <p>Variedad de licores especiales.</p>
+                <a href="otros-licores.html"><button>Ver más</button></a>
+            </div>
         </div>
-    </section>
-
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <div class="contacto-contenedor">
-            <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20realizar%20un%20pedido" target="_blank" class="boton-contacto whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://facebook.com" target="_blank" class="boton-contacto facebook">
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-            <a href="https://www.instagram.com/bbttodopei/" target="_blank" class="boton-contacto instagram">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-        </div>
-    </section>
-
-    <!-- Sección de Ubicación -->
-    <section id="ubicacion">
-        <h2>Ubicación</h2>
-        <a href="https://maps.app.goo.gl/xdnKGKxp98Wyjhb69" target="_blank" class="boton-ubicacion">
-            <i class="fas fa-map-marker-alt"></i> Ver Ubicación
-        </a>
     </section>
 
     <!-- Sección de Reseñas -->
