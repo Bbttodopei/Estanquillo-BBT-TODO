@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ron - BBT TODO</title>
+    <style>
+        /* Estilos generales (copiar desde la plantilla base) */
+    </style>
+</head>
+<body>
+    <h1>Ron</h1>
+    <div class="producto">
+        <!-- Producto 1 -->
+        <div class="item">
+            <img src="ron1.jpg" alt="Ron Viejo de Caldas">
+            <h3>Ron Viejo de Caldas</h3>
+            <p>$45.000</p>
+            <button onclick="comprar('Ron Viejo de Caldas')">Comprar</button>
+        </div>
+        <!-- Producto 2 -->
+        <div class="item">
+            <img src="ron2.jpg" alt="Ron Medellín Añejo">
+            <h3>Ron Medellín Añejo</h3>
+            <p>$50.000</p>
+            <button onclick="comprar('Ron Medellín Añejo')">Comprar</button>
+        </div>
+        <!-- Producto 3 -->
+        <div class="item">
+            <img src="ron3.jpg" alt="Ron Santa Fé">
+            <h3>Ron Santa Fé</h3>
+            <p>$40.000</p>
+            <button onclick="comprar('Ron Santa Fé')">Comprar</button>
+        </div>
+        <!-- Producto 4 -->
+        <div class="item">
+            <img src="ron4.jpg" alt="Ron Zacapa">
+            <h3>Ron Zacapa</h3>
+            <p>$120.000</p>
+            <button onclick="comprar('Ron Zacapa')">Comprar</button>
+        </div>
+    </div>
+    <div class="volver">
+        <a href="index.html">Volver al inicio</a>
+    </div>
+
+    <script>
+        function comprar(producto) {
+            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
+            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
