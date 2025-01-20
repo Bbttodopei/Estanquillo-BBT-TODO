@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estanquillo BBT TODO</title>
+    <!-- Agregamos FontAwesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos generales */
         body {
@@ -17,20 +19,20 @@
 
         /* Encabezado con banner */
         header {
-            background-color: #ff8c42; /* Fondo naranja */
+            background-color: #ff8c42;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 300px; /* Altura del encabezado */
-            overflow: hidden; /* Evita que la imagen se desborde */
+            height: 200px;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         header img {
-            width: 100%; /* La imagen ocupa todo el ancho */
-            height: 100%; /* La imagen ocupa toda la altura */
-            object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Menú de navegación */
@@ -44,84 +46,85 @@
             top: 0;
             z-index: 1000;
         }
+
         nav a {
             color: white;
-            padding: 14px 20px;
+            padding: 10px 15px;
             text-decoration: none;
             text-align: center;
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
+
         nav a:hover {
             background-color: #575757;
         }
 
         /* Secciones */
         section {
-            padding: 40px 20px;
+            padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
+
         h2 {
-            font-size: 2.5em;
+            font-size: 2em;
             color: #ff8c42;
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        /* Texto de bienvenida centrado */
-        #inicio p {
-            text-align: center;
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
         /* Productos */
         .productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 15px;
         }
+
         .producto {
             background-color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .producto:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
+
         .producto img {
             max-width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
+
         .producto h3 {
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #333;
             margin: 10px 0;
         }
+
         .producto p {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #666;
         }
+
         .producto button {
             background-color: #ff8c42;
             color: white;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 0.9em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         .producto button:hover {
             background-color: #e67e22;
         }
@@ -129,19 +132,21 @@
         /* Sección de Contacto */
         #contacto {
             background-color: white;
-            padding: 40px 20px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 40px auto;
+            margin: 20px auto;
             text-align: center;
         }
+
         .redes-sociales {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 20px;
         }
+
         .redes-sociales a {
             text-decoration: none;
             color: white;
@@ -153,15 +158,19 @@
             gap: 10px;
             transition: transform 0.3s ease;
         }
+
         .redes-sociales a:hover {
             transform: translateY(-5px);
         }
+
         .whatsapp {
             background-color: #25d366; /* Color de WhatsApp */
         }
+
         .facebook {
             background-color: #1877f2; /* Color de Facebook */
         }
+
         .instagram {
             background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Gradiente de Instagram */
         }
@@ -169,16 +178,14 @@
         /* Sección de Ubicación */
         #ubicacion {
             background-color: white;
-            padding: 40px 20px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 40px auto;
+            margin: 20px auto;
             text-align: center;
         }
-        .mapa {
-            margin-top: 20px;
-        }
+
         .mapa iframe {
             width: 100%;
             height: 300px;
@@ -186,51 +193,7 @@
             border-radius: 10px;
         }
 
-        /* Sección de Reseñas */
-        #reseñas {
-            background-color: white;
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 40px auto;
-        }
-        .formulario-resenas {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .formulario-resenas label {
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        .formulario-resenas input,
-        .formulario-resenas textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        .formulario-resenas textarea {
-            resize: vertical; /* Permite redimensionar verticalmente */
-            min-height: 100px;
-        }
-        .formulario-resenas button {
-            background-color: #ff8c42;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .formulario-resenas button:hover {
-            background-color: #e67e22;
-        }
-
-        /* Pie de página */
+        /* Pie de Página */
         footer {
             background-color: #333;
             color: white;
@@ -239,9 +202,10 @@
             margin-top: 40px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .horarios {
             margin: 20px auto;
-            width: 80%;
+            width: 100%;
             max-width: 600px;
             border-collapse: collapse;
             background-color: white;
@@ -249,45 +213,86 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
+
         .horarios th, .horarios td {
             padding: 15px;
             text-align: center;
         }
+
         .horarios th {
             background-color: #ff8c42;
             color: white;
             font-size: 1.2em;
         }
+
         .horarios td {
             background-color: #ffffff;
             color: #333;
             font-size: 1.1em;
         }
+
         .horarios tr:nth-child(even) td {
             background-color: #f1f1f1;
         }
 
-        /* Diseño responsive */
+        /* Media queries para móviles */
         @media (max-width: 768px) {
-            .productos {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            header {
+                height: 150px;
             }
-            header h1 {
-                font-size: 2em;
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 0.9em;
             }
+
             h2 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
-            .horarios {
-                width: 100%;
+
+            .productos {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .producto {
+                padding: 10px;
+            }
+
+            .producto h3 {
+                font-size: 1em;
+            }
+
+            .producto p {
+                font-size: 0.9em;
+            }
+
+            .producto button {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+
+            .redes-sociales {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .redes-sociales a {
+                width: 80%;
+                justify-content: center;
+            }
+
+            .mapa iframe {
+                height: 200px;
+            }
+
+            .horarios th, .horarios td {
+                padding: 10px;
+                font-size: 0.9em;
             }
         }
     </style>
-    <!-- Agregamos FontAwesome para los íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
     <!-- Encabezado -->
     <header>
         <img src="fondo con bbt todo.png" alt="Logo BBT TODO">
@@ -376,15 +381,12 @@
         <h2>Contacto</h2>
         <p>¡Contáctanos a través de nuestras redes sociales o WhatsApp!</p>
         <div class="redes-sociales">
-            <!-- Botón de WhatsApp -->
             <a href="https://api.whatsapp.com/send/?phone=573245519976&text=Hola%2C+estoy+interesado+en+realizar+un+pedido&type=phone_number&app_absent=0" class="whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <!-- Botón de Facebook -->
             <a href="https://www.facebook.com/tu-pagina-de-facebook" class="facebook" target="_blank">
                 <i class="fab fa-facebook"></i> Facebook
             </a>
-            <!-- Botón de Instagram -->
             <a href="https://www.instagram.com/bbttodopei/" class="instagram" target="_blank">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
@@ -400,28 +402,9 @@
         </div>
     </section>
 
-    <!-- Sección de Reseñas -->
-    <section id="reseñas">
-        <h2>Reseñas</h2>
-        <div class="formulario-resenas">
-            <form id="form-resena">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="reseña">Reseña:</label>
-                <textarea id="reseña" name="reseña" rows="5" required></textarea>
-
-                <button type="submit">Enviar reseña</button>
-            </form>
-        </div>
-    </section>
-
     <!-- Pie de Página -->
     <footer>
-        <h3>Horario de atención</h3>
+        <h3 style="text-align: center;">Horario de atención</h3>
         <table class="horarios">
             <thead>
                 <tr>
@@ -467,6 +450,5 @@
             document.getElementById('form-resena').reset();
         });
     </script>
-
 </body>
 </html>
