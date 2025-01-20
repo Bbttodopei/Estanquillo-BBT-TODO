@@ -150,16 +150,12 @@
             margin-right: 10px; /* Espacio entre el ícono y el texto */
         }
 
-        /* Sección de Ubicación */
-        #ubicacion {
-            background-color: #fff;
-            padding: 40px 20px;
-        }
-        .ubicacion-link {
+        /* Botón de Ubicación */
+        .boton-ubicacion {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ff8c42; /* Color naranja */
+            background-color: #EA4335; /* Color rojo de Google Maps */
             color: white;
             padding: 15px 30px;
             border-radius: 50px;
@@ -171,13 +167,12 @@
             margin: 20px auto;
             max-width: 300px;
         }
-        .ubicacion-link:hover {
-            background-color: #e67e22; /* Naranja más oscuro */
+        .boton-ubicacion:hover {
+            background-color: #D32F2F; /* Rojo más oscuro */
             transform: translateY(-5px);
         }
-        .ubicacion-link img {
-            width: 30px;
-            margin-right: 10px;
+        .boton-ubicacion i {
+            margin-right: 10px; /* Espacio entre el ícono y el texto */
         }
 
         /* Formulario de registro y reseñas */
@@ -272,7 +267,7 @@
                 width: 100%;
                 max-width: 300px;
             }
-            .ubicacion-link {
+            .boton-ubicacion {
                 width: 100%;
                 max-width: none;
             }
@@ -330,9 +325,8 @@
     <!-- Sección de Ubicación -->
     <section id="ubicacion">
         <h2>Ubicación</h2>
-        <a href="https://maps.app.goo.gl/xdnKGKxp98Wyjhb69" target="_blank" class="ubicacion-link">
-            <img src="ubicacion.png" alt="Ubicación">
-            Ver Ubicación
+        <a href="https://maps.app.goo.gl/xdnKGKxp98Wyjhb69" target="_blank" class="boton-ubicacion">
+            <i class="fas fa-map-marker-alt"></i> Ver Ubicación
         </a>
     </section>
 
