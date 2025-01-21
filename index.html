@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estanquillo BBT TODO</title>
-    <!-- Agregamos FontAwesome para los íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos generales */
         body {
@@ -19,21 +17,20 @@
 
         /* Encabezado con banner */
         header {
-            background-color: #ff8c42;
+            background-color: #ff8c42; /* Fondo naranja */
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 200px;
-            overflow: hidden;
+            height: 300px; /* Altura del encabezado */
+            overflow: hidden; /* Evita que la imagen se desborde */
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%; /* Asegura que el header ocupe el 100% del ancho */
         }
 
         header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; /* La imagen ocupa todo el ancho */
+            height: 100%; /* La imagen ocupa toda la altura */
+            object-fit: cover; /* Ajusta la imagen sin distorsionarla */
         }
 
         /* Menú de navegación */
@@ -46,98 +43,85 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
-            white-space: nowrap; /* Evita que los elementos del nav se envuelvan */
         }
-
         nav a {
             color: white;
-            padding: 10px 15px;
+            padding: 14px 20px;
             text-decoration: none;
             text-align: center;
             font-weight: bold;
             transition: background-color 0.3s ease;
-            flex-shrink: 0; /* Evita que los enlaces se reduzcan */
         }
-
         nav a:hover {
             background-color: #575757;
         }
 
         /* Secciones */
         section {
-            padding: 20px;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-            opacity: 0; /* Inicialmente oculto */
-            transform: translateY(50px); /* Desplazado hacia abajo */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        section.visible {
-            opacity: 1; /* Visible */
-            transform: translateY(0); /* Sin desplazamiento */
-        }
-
         h2 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #ff8c42;
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
+        /* Texto de bienvenida centrado */
+        #inicio p {
+            text-align: center;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
         /* Productos */
         .productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            padding: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
-
         .producto {
             background-color: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .producto:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
-
         .producto img {
             max-width: 100%;
             border-radius: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
-
         .producto h3 {
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: #333;
             margin: 10px 0;
         }
-
         .producto p {
-            font-size: 1em;
+            font-size: 1.2em;
             color: #666;
         }
-
         .producto button {
             background-color: #ff8c42;
             color: white;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            font-size: 0.9em;
+            font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .producto button:hover {
             background-color: #e67e22;
         }
@@ -145,21 +129,19 @@
         /* Sección de Contacto */
         #contacto {
             background-color: white;
-            padding: 20px;
+            padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 20px auto;
+            margin: 40px auto;
             text-align: center;
         }
-
         .redes-sociales {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
         }
-
         .redes-sociales a {
             text-decoration: none;
             color: white;
@@ -171,19 +153,15 @@
             gap: 10px;
             transition: transform 0.3s ease;
         }
-
         .redes-sociales a:hover {
             transform: translateY(-5px);
         }
-
         .whatsapp {
             background-color: #25d366; /* Color de WhatsApp */
         }
-
         .facebook {
             background-color: #1877f2; /* Color de Facebook */
         }
-
         .instagram {
             background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Gradiente de Instagram */
         }
@@ -191,14 +169,13 @@
         /* Sección de Ubicación */
         #ubicacion {
             background-color: white;
-            padding: 20px;
+            padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 20px auto;
+            margin: 40px auto;
             text-align: center;
         }
-
         .mapa iframe {
             width: 100%;
             height: 300px;
@@ -209,44 +186,48 @@
         /* Sección de Reseñas */
         #reseñas {
             background-color: white;
-            padding: 20px;
+            padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 20px auto;
-            text-align: center;
+            margin: 40px auto;
         }
-
-        #reseñas form {
+        .formulario-resenas {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
         }
-
-        #reseñas input,
-        #reseñas textarea {
+        .formulario-resenas label {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .formulario-resenas input,
+        .formulario-resenas textarea {
+            width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
         }
-
-        #reseñas button {
+        .formulario-resenas textarea {
+            resize: vertical; /* Permite redimensionar verticalmente */
+            min-height: 100px;
+        }
+        .formulario-resenas button {
             background-color: #ff8c42;
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
-        #reseñas button:hover {
+        .formulario-resenas button:hover {
             background-color: #e67e22;
         }
 
-        /* Pie de Página */
+        /* Pie de página */
         footer {
             background-color: #333;
             color: white;
@@ -254,13 +235,10 @@
             padding: 30px 20px;
             margin-top: 40px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%; /* Asegura que el footer ocupe el 100% del ancho */
-            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
         }
-
         .horarios {
             margin: 20px auto;
-            width: 100%;
+            width: 80%;
             max-width: 600px;
             border-collapse: collapse;
             background-color: white;
@@ -268,89 +246,48 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-
         .horarios th, .horarios td {
             padding: 15px;
             text-align: center;
         }
-
         .horarios th {
             background-color: #ff8c42;
             color: white;
             font-size: 1.2em;
         }
-
         .horarios td {
             background-color: #ffffff;
             color: #333;
             font-size: 1.1em;
         }
-
         .horarios tr:nth-child(even) td {
             background-color: #f1f1f1;
         }
 
-        /* Media queries para móviles */
+        /* Diseño responsive */
         @media (max-width: 768px) {
-            header {
-                height: 150px;
-            }
-
-            nav a {
-                padding: 8px 10px;
-                font-size: 0.9em;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
             .productos {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
-
-            .producto {
-                padding: 10px;
+            header h1 {
+                font-size: 2em;
             }
-
-            .producto h3 {
-                font-size: 1em;
+            h2 {
+                font-size: 2em;
             }
-
-            .producto p {
-                font-size: 0.9em;
-            }
-
-            .producto button {
-                padding: 6px 12px;
-                font-size: 0.8em;
-            }
-
-            .redes-sociales {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .redes-sociales a {
-                width: 80%;
-                justify-content: center;
-            }
-
-            .mapa iframe {
-                height: 200px;
-            }
-
-            .horarios th, .horarios td {
-                padding: 10px;
-                font-size: 0.9em;
+            .horarios {
+                width: 100%;
             }
         }
     </style>
+    <!-- Agregamos FontAwesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
     <!-- Encabezado -->
     <header>
-        <img src="imagenes/fondo con bbt todo.png" alt="Logo BBT TODO">
+        <img src="banner 7.png" alt="Logo BBT TODO">
     </header>
 
     <!-- Menú de navegación -->
@@ -374,56 +311,56 @@
         <div class="productos">
             <!-- Producto 1: Ron -->
             <div class="producto">
-                <img src="imagenes/ron.jpg" alt="Ron">
+                <img src="ron.jpg" alt="Ron">
                 <h3>Ron</h3>
                 <p>Variedad de marcas y precios.</p>
                 <a href="ron.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 2: Aguardiente -->
             <div class="producto">
-                <img src="imagenes/aguardiente.jpg" alt="Aguardiente">
+                <img src="aguardiente.jpg" alt="Aguardiente">
                 <h3>Aguardiente</h3>
                 <p>Las mejores marcas nacionales.</p>
                 <a href="aguardiente.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 3: Whisky -->
             <div class="producto">
-                <img src="imagenes/whisky.jpg" alt="Whisky">
+                <img src="whisky.jpg" alt="Whisky">
                 <h3>Whisky</h3>
                 <p>Importados y nacionales.</p>
                 <a href="whisky.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 4: Vodka -->
             <div class="producto">
-                <img src="imagenes/vodka.jpg" alt="Vodka">
+                <img src="vodka.jpg" alt="Vodka">
                 <h3>Vodka</h3>
                 <p>Marcas premium y estándar.</p>
                 <a href="vodka.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 5: Cervezas -->
             <div class="producto">
-                <img src="imagenes/cervezas.jpg" alt="Cervezas">
+                <img src="cervezas.jpg" alt="Cervezas">
                 <h3>Cervezas</h3>
                 <p>Nacionales e importadas.</p>
                 <a href="cervezas.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 6: Tequila -->
             <div class="producto">
-                <img src="imagenes/tequila.jpg" alt="Tequila">
+                <img src="tequila.jpg" alt="Tequila">
                 <h3>Tequila</h3>
                 <p>Marcas reconocidas.</p>
                 <a href="tequila.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 7: Cocteles en Lata -->
             <div class="producto">
-                <img src="imagenes/cocteles.jpg" alt="Cocteles en Lata">
+                <img src="cocteles.jpg" alt="Cocteles en Lata">
                 <h3>Cocteles en Lata</h3>
                 <p>Four Loko y más.</p>
                 <a href="cocteles.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 8: Otros Licores -->
             <div class="producto">
-                <img src="imagenes/otros-licores.jpg" alt="Otros Licores">
+                <img src="otros-licores.jpg" alt="Otros Licores">
                 <h3>Otros Licores</h3>
                 <p>Variedad de licores especiales.</p>
                 <a href="otros-licores.html"><button>Ver más</button></a>
@@ -460,17 +397,25 @@
     <!-- Sección de Reseñas -->
     <section id="reseñas">
         <h2>Reseñas</h2>
-        <form id="form-resena">
-            <input type="text" id="nombre" placeholder="Tu nombre" required>
-            <input type="email" id="email" placeholder="Tu correo electrónico" required>
-            <textarea id="reseña" rows="5" placeholder="Escribe tu reseña aquí..." required></textarea>
-            <button type="submit">Enviar Reseña</button>
-        </form>
+        <div class="formulario-resenas">
+            <form id="form-resena">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="reseña">Reseña:</label>
+                <textarea id="reseña" name="reseña" rows="5" required></textarea>
+
+                <button type="submit">Enviar reseña</button>
+            </form>
+        </div>
     </section>
 
     <!-- Pie de Página -->
     <footer>
-        <h3 style="text-align: center;">Horario de atención</h3>
+        <h3>Horario de atención</h3>
         <table class="horarios">
             <thead>
                 <tr>
@@ -497,36 +442,25 @@
                 </tr>
             </tbody>
         </table>
-    </footer>
+    </footer
 
-    <!-- Script para animaciones de aparición -->
+    <-- Script para manejar el formulario de reseñas -->
     <script>
-        // Función para detectar si un elemento está en el viewport
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
+        document.getElementById('form-resena').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe
 
-        // Función para manejar la animación de aparición
-        function handleScroll() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                if (isElementInViewport(section)) {
-                    section.classList.add('visible');
-                }
-            });
-        }
+            // Obtén los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const reseña = document.getElementById('reseña').value;
 
-        // Escuchar el evento de scroll
-        window.addEventListener('scroll', handleScroll);
+            // Aquí puedes agregar la lógica para enviar los datos a un servidor o mostrarlos en la página
+            alert(`Gracias, ${nombre}, por tu reseña.`);
 
-        // Ejecutar la función al cargar la página
-        document.addEventListener('DOMContentLoaded', handleScroll);
+            // Limpia el formulario
+            document.getElementById('form-resena').reset();
+        });
     </script>
+
 </body>
 </html>
