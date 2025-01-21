@@ -25,12 +25,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 2s ease-in-out;
         }
 
         header img {
             width: 100%; /* La imagen ocupa todo el ancho */
             height: 100%; /* La imagen ocupa toda la altura */
             object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         /* Menú de navegación */
@@ -50,10 +61,11 @@
             text-decoration: none;
             text-align: center;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         nav a:hover {
             background-color: #575757;
+            transform: translateY(-5px);
         }
 
         /* Secciones */
@@ -61,6 +73,7 @@
             padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            animation: slideUp 1s ease-in-out;
         }
         h2 {
             font-size: 2.5em;
@@ -68,6 +81,19 @@
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animación de deslizamiento */
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Texto de bienvenida centrado */
@@ -77,6 +103,7 @@
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         /* Productos */
@@ -93,6 +120,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
         }
         .producto:hover {
             transform: translateY(-10px);
@@ -102,6 +130,10 @@
             max-width: 100%;
             border-radius: 10px;
             margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .producto img:hover {
+            transform: scale(1.1);
         }
         .producto h3 {
             font-size: 1.5em;
@@ -120,10 +152,11 @@
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .producto button:hover {
             background-color: #e67e22;
+            transform: scale(1.05);
         }
 
         /* Sección de Contacto */
@@ -135,6 +168,7 @@
             max-width: 600px;
             margin: 40px auto;
             text-align: center;
+            animation: slideUp 1s ease-in-out;
         }
         .redes-sociales {
             display: flex;
@@ -151,10 +185,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .redes-sociales a:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .whatsapp {
             background-color: #25d366; /* Color de WhatsApp */
@@ -175,6 +210,7 @@
             max-width: 600px;
             margin: 40px auto;
             text-align: center;
+            animation: slideUp 1s ease-in-out;
         }
         .mapa iframe {
             width: 100%;
@@ -191,6 +227,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             margin: 40px auto;
+            animation: slideUp 1s ease-in-out;
         }
         .formulario-resenas {
             display: flex;
@@ -221,10 +258,11 @@
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .formulario-resenas button:hover {
             background-color: #e67e22;
+            transform: scale(1.05);
         }
 
         /* Pie de página */
@@ -235,6 +273,7 @@
             padding: 30px 20px;
             margin-top: 40px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
         }
         .horarios {
             margin: 20px auto;
@@ -442,9 +481,9 @@
                 </tr>
             </tbody>
         </table>
-    </footer
+    </footer>
 
-    <-- Script para manejar el formulario de reseñas -->
+    <!-- Script para manejar el formulario de reseñas -->
     <script>
         document.getElementById('form-resena').addEventListener('submit', function (event) {
             event.preventDefault(); // Evita que el formulario se envíe
