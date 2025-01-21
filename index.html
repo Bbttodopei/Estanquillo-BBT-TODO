@@ -27,7 +27,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
+            width: 100%; /* Asegura que el header ocupe el 100% del ancho */
         }
 
         header img {
@@ -46,8 +46,8 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            overflow-x: auto;
-            white-space: nowrap;
+            overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+            white-space: nowrap; /* Evita que los elementos del nav se envuelvan */
         }
 
         nav a {
@@ -57,7 +57,7 @@
             text-align: center;
             font-weight: bold;
             transition: background-color 0.3s ease;
-            flex-shrink: 0;
+            flex-shrink: 0; /* Evita que los enlaces se reduzcan */
         }
 
         nav a:hover {
@@ -69,15 +69,15 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(50px);
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+            opacity: 0; /* Inicialmente oculto */
+            transform: translateY(50px); /* Desplazado hacia abajo */
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         section.visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; /* Visible */
+            transform: translateY(0); /* Sin desplazamiento */
         }
 
         h2 {
@@ -91,10 +91,9 @@
         /* Productos */
         .productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustado para móviles */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             padding: 15px;
-            overflow: hidden; /* Evita el desbordamiento */
         }
 
         .producto {
@@ -178,15 +177,15 @@
         }
 
         .whatsapp {
-            background-color: #25d366;
+            background-color: #25d366; /* Color de WhatsApp */
         }
 
         .facebook {
-            background-color: #1877f2;
+            background-color: #1877f2; /* Color de Facebook */
         }
 
         .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Gradiente de Instagram */
         }
 
         /* Sección de Ubicación */
@@ -255,8 +254,8 @@
             padding: 30px 20px;
             margin-top: 40px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            box-sizing: border-box;
+            width: 100%; /* Asegura que el footer ocupe el 100% del ancho */
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
         }
 
         .horarios {
@@ -307,7 +306,7 @@
             }
 
             .productos {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajustado para móviles */
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
             .producto {
@@ -351,7 +350,7 @@
 <body>
     <!-- Encabezado -->
     <header>
-        <img src="imagenes/fondo con bbt todo.png" alt="Logo BBT TODO">
+        <img src="fondo con bbt todo.png" alt="Logo BBT TODO">
     </header>
 
     <!-- Menú de navegación -->
@@ -375,56 +374,56 @@
         <div class="productos">
             <!-- Producto 1: Ron -->
             <div class="producto">
-                <img src="imagenes/ron.jpg" alt="Ron">
+                <img src="ron.jpg" alt="Ron">
                 <h3>Ron</h3>
                 <p>Variedad de marcas y precios.</p>
                 <a href="ron.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 2: Aguardiente -->
             <div class="producto">
-                <img src="imagenes/aguardiente.jpg" alt="Aguardiente">
+                <img src="aguardiente.jpg" alt="Aguardiente">
                 <h3>Aguardiente</h3>
                 <p>Las mejores marcas nacionales.</p>
                 <a href="aguardiente.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 3: Whisky -->
             <div class="producto">
-                <img src="imagenes/whisky.jpg" alt="Whisky">
+                <img src="whisky.jpg" alt="Whisky">
                 <h3>Whisky</h3>
                 <p>Importados y nacionales.</p>
                 <a href="whisky.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 4: Vodka -->
             <div class="producto">
-                <img src="imagenes/vodka.jpg" alt="Vodka">
+                <img src="vodka.jpg" alt="Vodka">
                 <h3>Vodka</h3>
                 <p>Marcas premium y estándar.</p>
                 <a href="vodka.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 5: Cervezas -->
             <div class="producto">
-                <img src="imagenes/cervezas.jpg" alt="Cervezas">
+                <img src="cervezas.jpg" alt="Cervezas">
                 <h3>Cervezas</h3>
                 <p>Nacionales e importadas.</p>
                 <a href="cervezas.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 6: Tequila -->
             <div class="producto">
-                <img src="imagenes/tequila.jpg" alt="Tequila">
+                <img src="tequila.jpg" alt="Tequila">
                 <h3>Tequila</h3>
                 <p>Marcas reconocidas.</p>
                 <a href="tequila.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 7: Cocteles en Lata -->
             <div class="producto">
-                <img src="imagenes/cocteles.jpg" alt="Cocteles en Lata">
+                <img src="cocteles.jpg" alt="Cocteles en Lata">
                 <h3>Cocteles en Lata</h3>
                 <p>Four Loko y más.</p>
                 <a href="cocteles.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 8: Otros Licores -->
             <div class="producto">
-                <img src="imagenes/otros-licores.jpg" alt="Otros Licores">
+                <img src="otros-licores.jpg" alt="Otros Licores">
                 <h3>Otros Licores</h3>
                 <p>Variedad de licores especiales.</p>
                 <a href="otros-licores.html"><button>Ver más</button></a>
