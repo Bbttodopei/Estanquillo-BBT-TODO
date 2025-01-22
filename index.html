@@ -10,22 +10,23 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background: linear-gradient(135deg, #f9f9f9, #e6e6e6); /* Degradado suave */
+            color: #333; /* Texto oscuro */
             line-height: 1.6;
         }
 
         /* Encabezado con banner */
         header {
-            background-color: #ff8c42; /* Fondo naranja */
+            background-color: #ffffff; /* Fondo blanco */
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 500px; /* Altura del encabezado */
+            height: 380px; /* Altura del encabezado */
             overflow: hidden; /* Evita que la imagen se desborde */
             display: flex;
             justify-content: center;
             align-items: center;
             animation: fadeIn 2s ease-in-out;
+            position: relative;
         }
 
         header img {
@@ -48,7 +49,7 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            background-color: #ffffff; /* Fondo blanco */
             padding: 10px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -56,32 +57,89 @@
             z-index: 1000;
         }
         nav a {
-            color: white;
+            color: #ff8c42; /* Color naranja */
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 30px; /* Bordes redondeados */
+            margin: 0 10px; /* Espacio entre botones */
         }
         nav a:hover {
-            background-color: #575757;
+            background-color: #ff8c42; /* Naranja */
+            color: #ffffff; /* Texto blanco */
             transform: translateY(-5px);
+        }
+
+        /* Botones flotantes de redes sociales y ubicación */
+        .botones-flotantes {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .botones-flotantes a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Forma circular */
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .botones-flotantes a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        .boton-whatsapp {
+            background-color: #25d366; /* Color de WhatsApp */
+        }
+        .boton-facebook {
+            background-color: #1877f2; /* Color de Facebook */
+        }
+        .boton-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Gradiente de Instagram */
+        }
+        .boton-ubicacion {
+            background-color: #ff8c42; /* Naranja */
         }
 
         /* Secciones */
         section {
-            padding: 40px 20px;
+            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
             animation: slideUp 1s ease-in-out;
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
         }
         h2 {
             font-size: 2.5em;
-            color: #ff8c42;
+            color: #ff8c42; /* Naranja */
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             animation: fadeIn 2s ease-in-out;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff8c42; /* Naranja */
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
         /* Animación de deslizamiento */
@@ -104,23 +162,26 @@
             margin: 0 auto;
             line-height: 1.8;
             animation: fadeIn 2.5s ease-in-out;
+            color: #555; /* Texto gris oscuro */
         }
 
         /* Productos */
         .productos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 30px;
             padding: 20px;
         }
         .producto {
-            background-color: white;
+            background-color: #ffffff; /* Fondo blanco */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeIn 2s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
         .producto:hover {
             transform: translateY(-10px);
@@ -137,16 +198,16 @@
         }
         .producto h3 {
             font-size: 1.5em;
-            color: #333;
+            color: #333; /* Texto oscuro */
             margin: 10px 0;
         }
         .producto p {
             font-size: 1.2em;
-            color: #666;
+            color: #666; /* Texto gris */
         }
         .producto button {
-            background-color: #ff8c42;
-            color: white;
+            background-color: #ff8c42; /* Naranja */
+            color: #ffffff; /* Texto blanco */
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -155,55 +216,13 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .producto button:hover {
-            background-color: #e67e22;
+            background-color: #e67e22; /* Naranja más oscuro */
             transform: scale(1.05);
-        }
-
-        /* Sección de Contacto */
-        #contacto {
-            background-color: white;
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 40px auto;
-            text-align: center;
-            animation: slideUp 1s ease-in-out;
-        }
-        .redes-sociales {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .redes-sociales a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .redes-sociales a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        .whatsapp {
-            background-color: #25d366; /* Color de WhatsApp */
-        }
-        .facebook {
-            background-color: #1877f2; /* Color de Facebook */
-        }
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Gradiente de Instagram */
         }
 
         /* Sección de Ubicación */
         #ubicacion {
-            background-color: white;
+            background-color: #ffffff; /* Fondo blanco */
             padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -221,7 +240,7 @@
 
         /* Sección de Reseñas */
         #reseñas {
-            background-color: white;
+            background-color: #ffffff; /* Fondo blanco */
             padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -237,22 +256,25 @@
         .formulario-resenas label {
             font-weight: bold;
             font-size: 1.1em;
+            color: #333; /* Texto oscuro */
         }
         .formulario-resenas input,
         .formulario-resenas textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #ccc; /* Borde gris */
             border-radius: 5px;
             font-size: 1em;
+            background-color: #f9f9f9; /* Fondo gris claro */
+            color: #333; /* Texto oscuro */
         }
         .formulario-resenas textarea {
             resize: vertical; /* Permite redimensionar verticalmente */
             min-height: 100px;
         }
         .formulario-resenas button {
-            background-color: #ff8c42;
-            color: white;
+            background-color: #ff8c42; /* Naranja */
+            color: #ffffff; /* Texto blanco */
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -261,14 +283,14 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .formulario-resenas button:hover {
-            background-color: #e67e22;
+            background-color: #e67e22; /* Naranja más oscuro */
             transform: scale(1.05);
         }
 
         /* Pie de página */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #ffffff; /* Fondo blanco */
+            color: #333; /* Texto oscuro */
             text-align: center;
             padding: 30px 20px;
             margin-top: 40px;
@@ -280,7 +302,7 @@
             width: 80%;
             max-width: 600px;
             border-collapse: collapse;
-            background-color: white;
+            background-color: #ffffff; /* Fondo blanco */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -290,17 +312,17 @@
             text-align: center;
         }
         .horarios th {
-            background-color: #ff8c42;
-            color: white;
+            background-color: #ff8c42; /* Naranja */
+            color: #ffffff; /* Texto blanco */
             font-size: 1.2em;
         }
         .horarios td {
-            background-color: #ffffff;
-            color: #333;
+            background-color: #f9f9f9; /* Fondo gris claro */
+            color: #333; /* Texto oscuro */
             font-size: 1.1em;
         }
         .horarios tr:nth-child(even) td {
-            background-color: #f1f1f1;
+            background-color: #f1f1f1; /* Fondo gris más claro */
         }
 
         /* Diseño responsive */
@@ -333,10 +355,24 @@
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
-        <a href="#contacto">Contacto</a>
-        <a href="#ubicacion">Ubicación</a>
         <a href="#reseñas">Reseñas</a>
     </nav>
+
+    <!-- Botones flotantes de redes sociales y ubicación -->
+    <div class="botones-flotantes">
+        <a href="https://api.whatsapp.com/send/?phone=573245519976&text=Hola%2C+estoy+interesado+en+realizar+un+pedido&type=phone_number&app_absent=0" class="boton-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/tu-pagina-de-facebook" class="boton-facebook" target="_blank">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/bbttodopei/" class="boton-instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#ubicacion" class="boton-ubicacion">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+    </div>
 
     <!-- Sección de Inicio -->
     <section id="inicio">
@@ -404,23 +440,6 @@
                 <p>Variedad de licores especiales.</p>
                 <a href="otros-licores.html"><button>Ver más</button></a>
             </div>
-        </div>
-    </section>
-
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>¡Contáctanos a través de nuestras redes sociales o WhatsApp!</p>
-        <div class="redes-sociales">
-            <a href="https://api.whatsapp.com/send/?phone=573245519976&text=Hola%2C+estoy+interesado+en+realizar+un+pedido&type=phone_number&app_absent=0" class="whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://www.facebook.com/tu-pagina-de-facebook" class="facebook" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-            <a href="https://www.instagram.com/bbttodopei/" class="instagram" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
         </div>
     </section>
 
