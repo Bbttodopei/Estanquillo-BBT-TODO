@@ -3,140 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ron - BBT TODO</title>
+    <title>Catálogo de Rones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* Estilos CSS */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f8f8f8; /* Color de fondo original */
             color: #333;
             line-height: 1.6;
         }
-        h1 {
+
+        header {
+            background-color: #ff8c42; /* Naranja original del encabezado */
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            color: #ff8c42;
+        }
+
+        header h1 {
+            margin: 0;
             font-size: 2.5em;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        main {
+            padding: 20px;
+            padding-bottom: 60px; /* Para evitar que el footer cubra el contenido */
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
         .producto {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .item:hover {
+
+        .producto:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .item img {
+
+        .producto img {
             max-width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
         }
-        .item:hover img {
-            transform: scale(1.05);
-        }
-        .item h3 {
+
+        .producto h2 {
             font-size: 1.5em;
-            color: #333;
-            margin: 10px 0;
-            font-weight: bold;
+            margin: 15px 0;
+            color: #ff8c42; /* Naranja original para los títulos */
         }
-        .item p {
-            font-size: 1.2em;
-            color: #666;
-            margin: 10px 0;
+
+        .producto ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .item button {
-            background-color: #ff8c42;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+
+        .producto ul li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .item button:hover {
-            background-color: #e67e22;
-            transform: scale(1.05);
-        }
-        .volver {
-            text-align: center;
-            margin: 40px 0;
-        }
-        .volver a {
+
+        .producto ul li a {
+            display: block;
+            background-color: #25d366; /* Color verde de WhatsApp */
+            color: #fff;
             text-decoration: none;
-            color: #ff8c42;
-            font-weight: bold;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid #ff8c42;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .volver a:hover {
-            background-color: #ff8c42;
-            color: white;
+
+        .producto ul li a:hover {
+            background-color: #128c7e; /* Color verde oscuro de WhatsApp al pasar el mouse */
+        }
+
+        footer {
+            background-color: #ff8c42; /* Naranja original del footer */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <h1>Ron</h1>
-    <div class="producto">
-        <!-- Producto 1 -->
-        <div class="item">
-            <img src="ron1.jpg" alt="Ron Viejo de Caldas">
-            <h3>Ron Viejo de Caldas</h3>
-            <p>$45.000</p>
-            <button onclick="comprar('Ron Viejo de Caldas')">Comprar</button>
-        </div>
-        <!-- Producto 2 -->
-        <div class="item">
-            <img src="ron2.jpg" alt="Ron Medellín Añejo">
-            <h3>Ron Medellín Añejo</h3>
-            <p>$50.000</p>
-            <button onclick="comprar('Ron Medellín Añejo')">Comprar</button>
-        </div>
-        <!-- Producto 3 -->
-        <div class="item">
-            <img src="ron3.jpg" alt="Ron Santa Fé">
-            <h3>Ron Santa Fé</h3>
-            <p>$40.000</p>
-            <button onclick="comprar('Ron Santa Fé')">Comprar</button>
-        </div>
-        <!-- Producto 4 -->
-        <div class="item">
-            <img src="ron4.jpg" alt="Ron Zacapa">
-            <h3>Ron Zacapa</h3>
-            <p>$120.000</p>
-            <button onclick="comprar('Ron Zacapa')">Comprar</button>
-        </div>
-    </div>
-    <div class="volver">
-        <a href="index.html">Volver al inicio</a>
-    </div>
+    <header>
+        <h1>Catálogo de Rones</h1>
+    </header>
 
-    <script>
-        function comprar(producto) {
-            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
-            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
-            window.open(url, '_blank');
-        }
-    </script>
+    <main>
+        <section class="productos">
+            <!-- Ron Tradicional Caldas -->
+            <div class="producto">
+                <img src="ron_tradicional_caldas.jpg" alt="Ron Tradicional Caldas">
+                <h2>Ron Tradicional Caldas</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%20750%20ml" target="_blank">750 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%201000%20ml" target="_blank">1000 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Ron Añejo Caldas -->
+            <div class="producto">
+                <img src="ron_anejo_caldas.jpg" alt="Ron Añejo Caldas">
+                <h2>Ron Añejo Caldas</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%20750%20ml" target="_blank">750 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%201000%20ml" target="_blank">1000 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Ron Premium Caldas -->
+            <div class="producto">
+                <img src="ron_premium_caldas.jpg" alt="Ron Premium Caldas">
+                <h2>Ron Premium Caldas</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%20750%20ml" target="_blank">750 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%201000%20ml" target="_blank">1000 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Ron Medellín -->
+            <div class="producto">
+                <img src="ron_medellin.jpg" alt="Ron Medellín">
+                <h2>Ron Medellín</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Medellín%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Medellín%20750%20ml" target="_blank">750 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Ron Zacapa -->
+            <div class="producto">
+                <img src="ron_zacapa.jpg" alt="Ron Zacapa">
+                <h2>Ron Zacapa</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Zacapa%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Zacapa%20750%20ml" target="_blank">750 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Bacardí Añejo -->
+            <div class="producto">
+                <img src="bacardi_anejo.jpg" alt="Bacardí Añejo">
+                <h2>Bacardí Añejo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Añejo%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Añejo%20750%20ml" target="_blank">750 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Bacardí Limón -->
+            <div class="producto">
+                <img src="bacardi_limon.jpg" alt="Bacardí Limón">
+                <h2>Bacardí Limón</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Limón%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Limón%20750%20ml" target="_blank">750 ml</a></li>
+                </ul>
+            </div>
+
+            <!-- Bacardí Mojito -->
+            <div class="producto">
+                <img src="bacardi_mojito.jpg" alt="Bacardí Mojito">
+                <h2>Bacardí Mojito</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Mojito%20375%20ml" target="_blank">375 ml</a></li>
+                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Mojito%20750%20ml" target="_blank">750 ml</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Catálogo de Rones. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
