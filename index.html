@@ -588,6 +588,7 @@
         function buscarProducto() {
             const busqueda = document.getElementById('buscar-producto').value.toLowerCase();
             const productos = document.querySelectorAll('.producto');
+            const secciones = document.querySelectorAll('section');
             const resultadosBusqueda = document.getElementById('resultados-busqueda');
             resultadosBusqueda.innerHTML = ''; // Limpia los resultados anteriores
 
@@ -598,6 +599,7 @@
 
             let resultadosEncontrados = false;
 
+            // Buscar en productos
             productos.forEach(producto => {
                 const nombreProducto = producto.getAttribute('data-nombre').toLowerCase();
                 if (nombreProducto.includes(busqueda)) {
@@ -612,6 +614,26 @@
                             <div>
                                 <h4>${nombre}</h4>
                                 <p>${descripcion}</p>
+                            </div>
+                        </div>
+                    `;
+                    resultadosBusqueda.innerHTML += resultadoHTML;
+                }
+            });
+
+            // Buscar en secciones
+            secciones.forEach(seccion => {
+                const contenidoSeccion = seccion.textContent.toLowerCase();
+                if (contenidoSeccion.includes(busqueda)) {
+                    resultadosEncontrados = true;
+                    const tituloSeccion = seccion.querySelector('h2').textContent;
+                    const enlaceSeccion = `#${seccion.id}`;
+
+                    const resultadoHTML = `
+                        <div class="resultado" onclick="window.location.href='${enlaceSeccion}'">
+                            <div>
+                                <h4>${tituloSeccion}</h4>
+                                <p>Sección relacionada con "${busqueda}"</p>
                             </div>
                         </div>
                     `;
