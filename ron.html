@@ -92,6 +92,29 @@
             background-color: #128c7e; /* Color verde oscuro de WhatsApp al pasar el mouse */
         }
 
+        .precio {
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .volver-inicio {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff8c42; /* Naranja original */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content;
+            transition: background-color 0.3s ease;
+        }
+
+        .volver-inicio:hover {
+            background-color: #e64a19; /* Naranja oscuro al pasar el mouse */
+        }
+
         footer {
             background-color: #ff8c42; /* Naranja original del footer */
             color: #fff;
@@ -104,7 +127,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="inicio">
         <h1>Catálogo de Rones</h1>
     </header>
 
@@ -116,9 +139,18 @@
                 <h2>Ron Tradicional Caldas</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%20750%20ml" target="_blank">750 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%201000%20ml" target="_blank">1000 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$25.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$45.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Tradicional%20Caldas%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$60.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -128,9 +160,18 @@
                 <h2>Ron Añejo Caldas</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%20750%20ml" target="_blank">750 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%201000%20ml" target="_blank">1000 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$30.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$55.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Añejo%20Caldas%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$75.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -140,9 +181,18 @@
                 <h2>Ron Premium Caldas</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%20750%20ml" target="_blank">750 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%201000%20ml" target="_blank">1000 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$35.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$65.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Premium%20Caldas%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$85.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -152,8 +202,14 @@
                 <h2>Ron Medellín</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Medellín%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Medellín%20750%20ml" target="_blank">750 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Medellín%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$28.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Medellín%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$50.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -163,8 +219,14 @@
                 <h2>Ron Zacapa</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Zacapa%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Zacapa%20750%20ml" target="_blank">750 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Zacapa%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$40.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Ron%20Zacapa%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$70.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -174,8 +236,14 @@
                 <h2>Bacardí Añejo</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Añejo%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Añejo%20750%20ml" target="_blank">750 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Añejo%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$32.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Añejo%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$60.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -185,8 +253,14 @@
                 <h2>Bacardí Limón</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Limón%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Limón%20750%20ml" target="_blank">750 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Limón%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$30.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Limón%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$55.000</div>
+                    </li>
                 </ul>
             </div>
 
@@ -196,15 +270,24 @@
                 <h2>Bacardí Mojito</h2>
                 <p>Disponible en:</p>
                 <ul>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Mojito%20375%20ml" target="_blank">375 ml</a></li>
-                    <li><a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Mojito%20750%20ml" target="_blank">750 ml</a></li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Mojito%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$30.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Bacardí%20Mojito%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$55.000</div>
+                    </li>
                 </ul>
             </div>
         </section>
+
+        <!-- Botón de Volver al Inicio -->
+        <a href="#inicio" class="volver-inicio">Volver al Inicio</a>
     </main>
 
     <footer>
-        <p>&copy; 2025 Catálogo de Rones. Todos los derechos reservados.</p>
+        <p>&copy; 2023 Catálogo de Rones. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
