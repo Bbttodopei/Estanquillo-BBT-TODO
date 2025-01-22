@@ -20,7 +20,7 @@
             background-color: #ffffff; /* Fondo blanco */
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 400px; /* Altura del encabezado */
+            height: 500px; /* Altura del encabezado */
             overflow: hidden; /* Evita que la imagen se desborde */
             display: flex;
             justify-content: center;
@@ -80,6 +80,7 @@
             align-items: center;
             margin-left: auto; /* Alinea la barra de búsqueda a la derecha */
             padding: 0 20px;
+            position: relative; /* Para posicionar el contenedor de resultados */
         }
         .barra-busqueda input[type="text"] {
             padding: 10px;
@@ -106,6 +107,46 @@
         }
         .barra-busqueda button:hover {
             background-color: #e67e22; /* Naranja más oscuro */
+        }
+
+        /* Contenedor de resultados de búsqueda */
+        .resultados-busqueda {
+            position: absolute;
+            top: 50px; /* Debajo de la barra de búsqueda */
+            left: 0;
+            width: 100%;
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Oculto por defecto */
+        }
+        .resultados-busqueda .resultado {
+            padding: 10px;
+            border-bottom: 1px solid #eee; /* Separador entre resultados */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .resultados-busqueda .resultado:hover {
+            background-color: #f9f9f9; /* Fondo gris claro al pasar el mouse */
+        }
+        .resultados-busqueda .resultado img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .resultados-busqueda .resultado h4 {
+            margin: 0;
+            font-size: 1em;
+            color: #333; /* Texto oscuro */
+        }
+        .resultados-busqueda .resultado p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666; /* Texto gris */
         }
 
         /* Botones flotantes de redes sociales y ubicación */
@@ -403,6 +444,9 @@
         <div class="barra-busqueda">
             <input type="text" placeholder="Buscar productos..." id="buscar-producto">
             <button onclick="buscarProducto()"><i class="fas fa-search"></i></button>
+            <div class="resultados-busqueda" id="resultados-busqueda">
+                <!-- Aquí se mostrarán los resultados de la búsqueda -->
+            </div>
         </div>
     </nav>
 
@@ -567,16 +611,53 @@
         function buscarProducto() {
             const busqueda = document.getElementById('buscar-producto').value.toLowerCase();
             const productos = document.querySelectorAll('.producto');
+            const resultadosBusqueda = document.getElementById('resultados-busqueda');
+            resultadosBusqueda.innerHTML = ''; // Limpia los resultados anteriores
+
+            if (busqueda.trim() === '') {
+                resultadosBusqueda.style.display = 'none'; // Oculta el contenedor si no hay búsqueda
+                return;
+            }
+
+            let resultadosEncontrados = false;
 
             productos.forEach(producto => {
                 const nombreProducto = producto.getAttribute('data-nombre').toLowerCase();
                 if (nombreProducto.includes(busqueda)) {
-                    producto.style.display = 'block';
-                } else {
-                    producto.style.display = 'none';
+                    resultadosEncontrados = true;
+                    const imagen = producto.querySelector('img').src;
+                    const nombre = producto.querySelector('h3').textContent;
+                    const descripcion = producto.querySelector('p').textContent;
+
+                    const resultadoHTML = `
+                        <div class="resultado" onclick="window.location.href='${producto.querySelector('a').href}'">
+                            <img src="${imagen}" alt="${nombre}">
+                            <div>
+                                <h4>${nombre}</h4>
+                                <p>${descripcion}</p>
+                            </div>
+                        </div>
+                    `;
+                    resultadosBusqueda.innerHTML += resultadoHTML;
                 }
             });
+
+            if (resultadosEncontrados) {
+                resultadosBusqueda.style.display = 'block'; // Muestra el contenedor de resultados
+            } else {
+                resultadosBusqueda.innerHTML = '<div class="resultado">No se encontraron resultados.</div>';
+                resultadosBusqueda.style.display = 'block';
+            }
         }
+
+        // Oculta los resultados al hacer clic fuera de la barra de búsqueda
+        document.addEventListener('click', function (event) {
+            const barraBusqueda = document.querySelector('.barra-busqueda');
+            const resultadosBusqueda = document.getElementById('resultados-busqueda');
+            if (!barraBusqueda.contains(event.target)) {
+                resultadosBusqueda.style.display = 'none';
+            }
+        });
     </script>
 
 </body>
