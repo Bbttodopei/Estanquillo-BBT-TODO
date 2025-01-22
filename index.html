@@ -469,58 +469,58 @@
         <h2>Productos</h2>
         <div class="productos">
             <!-- Producto 1: Ron -->
-            <div class="producto" data-nombre="Ron">
-                <img src="ron.jpg" alt="Ron">
-                <h3>Ron</h3>
+            <div class="producto" data-nombre="Ron Bacardí" data-categoria="Ron" data-html="ron.html">
+                <img src="ron.jpg" alt="Ron Bacardí">
+                <h3>Ron Bacardí</h3>
                 <p>Variedad de marcas y precios.</p>
                 <a href="ron.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 2: Aguardiente -->
-            <div class="producto" data-nombre="Aguardiente">
-                <img src="aguardiente.jpg" alt="Aguardiente">
-                <h3>Aguardiente</h3>
+            <div class="producto" data-nombre="Aguardiente Antioqueño" data-categoria="Aguardiente" data-html="aguardiente.html">
+                <img src="aguardiente.jpg" alt="Aguardiente Antioqueño">
+                <h3>Aguardiente Antioqueño</h3>
                 <p>Las mejores marcas nacionales.</p>
                 <a href="aguardiente.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 3: Whisky -->
-            <div class="producto" data-nombre="Whisky">
-                <img src="whisky.jpg" alt="Whisky">
-                <h3>Whisky</h3>
+            <div class="producto" data-nombre="Whisky Johnnie Walker" data-categoria="Whisky" data-html="whisky.html">
+                <img src="whisky.jpg" alt="Whisky Johnnie Walker">
+                <h3>Whisky Johnnie Walker</h3>
                 <p>Importados y nacionales.</p>
                 <a href="whisky.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 4: Vodka -->
-            <div class="producto" data-nombre="Vodka">
-                <img src="vodka.jpg" alt="Vodka">
-                <h3>Vodka</h3>
+            <div class="producto" data-nombre="Vodka Absolut" data-categoria="Vodka" data-html="vodka.html">
+                <img src="vodka.jpg" alt="Vodka Absolut">
+                <h3>Vodka Absolut</h3>
                 <p>Marcas premium y estándar.</p>
                 <a href="vodka.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 5: Cervezas -->
-            <div class="producto" data-nombre="Cervezas">
-                <img src="cervezas.jpg" alt="Cervezas">
-                <h3>Cervezas</h3>
+            <div class="producto" data-nombre="Cerveza Poker" data-categoria="Cervezas" data-html="cervezas.html">
+                <img src="cervezas.jpg" alt="Cerveza Poker">
+                <h3>Cerveza Poker</h3>
                 <p>Nacionales e importadas.</p>
                 <a href="cervezas.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 6: Tequila -->
-            <div class="producto" data-nombre="Tequila">
-                <img src="tequila.jpg" alt="Tequila">
-                <h3>Tequila</h3>
+            <div class="producto" data-nombre="Tequila José Cuervo" data-categoria="Tequila" data-html="tequila.html">
+                <img src="tequila.jpg" alt="Tequila José Cuervo">
+                <h3>Tequila José Cuervo</h3>
                 <p>Marcas reconocidas.</p>
                 <a href="tequila.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 7: Cocteles en Lata -->
-            <div class="producto" data-nombre="Cocteles en Lata">
-                <img src="cocteles.jpg" alt="Cocteles en Lata">
-                <h3>Cocteles en Lata</h3>
-                <p>Four Loko y más.</p>
+            <div class="producto" data-nombre="Four Loko" data-categoria="Cocteles en Lata" data-html="cocteles.html">
+                <img src="cocteles.jpg" alt="Four Loko">
+                <h3>Four Loko</h3>
+                <p>Cocteles en lata.</p>
                 <a href="cocteles.html"><button>Ver más</button></a>
             </div>
             <!-- Producto 8: Otros Licores -->
-            <div class="producto" data-nombre="Otros Licores">
-                <img src="otros-licores.jpg" alt="Otros Licores">
-                <h3>Otros Licores</h3>
+            <div class="producto" data-nombre="Licor de Café" data-categoria="Otros Licores" data-html="otros-licores.html">
+                <img src="otros-licores.jpg" alt="Licor de Café">
+                <h3>Licor de Café</h3>
                 <p>Variedad de licores especiales.</p>
                 <a href="otros-licores.html"><button>Ver más</button></a>
             </div>
@@ -585,10 +585,9 @@
     <!-- Script para manejar el formulario de reseñas y la búsqueda -->
     <script>
         // Función para buscar productos
-        function buscarProducto() {
+        async function buscarProducto() {
             const busqueda = document.getElementById('buscar-producto').value.toLowerCase();
             const productos = document.querySelectorAll('.producto');
-            const secciones = document.querySelectorAll('section');
             const resultadosBusqueda = document.getElementById('resultados-busqueda');
             resultadosBusqueda.innerHTML = ''; // Limpia los resultados anteriores
 
@@ -599,17 +598,20 @@
 
             let resultadosEncontrados = false;
 
-            // Buscar en productos
+            // Buscar en productos del index
             productos.forEach(producto => {
                 const nombreProducto = producto.getAttribute('data-nombre').toLowerCase();
-                if (nombreProducto.includes(busqueda)) {
+                const categoriaProducto = producto.getAttribute('data-categoria').toLowerCase();
+                const htmlProducto = producto.getAttribute('data-html');
+
+                if (nombreProducto.includes(busqueda) || categoriaProducto.includes(busqueda)) {
                     resultadosEncontrados = true;
                     const imagen = producto.querySelector('img').src;
                     const nombre = producto.querySelector('h3').textContent;
                     const descripcion = producto.querySelector('p').textContent;
 
                     const resultadoHTML = `
-                        <div class="resultado" onclick="window.location.href='${producto.querySelector('a').href}'">
+                        <div class="resultado" onclick="window.location.href='${htmlProducto}'">
                             <img src="${imagen}" alt="${nombre}">
                             <div>
                                 <h4>${nombre}</h4>
@@ -621,25 +623,37 @@
                 }
             });
 
-            // Buscar en secciones
-            secciones.forEach(seccion => {
-                const contenidoSeccion = seccion.textContent.toLowerCase();
-                if (contenidoSeccion.includes(busqueda)) {
-                    resultadosEncontrados = true;
-                    const tituloSeccion = seccion.querySelector('h2').textContent;
-                    const enlaceSeccion = `#${seccion.id}`;
+            // Buscar en archivos HTML de productos
+            for (const producto of productos) {
+                const htmlProducto = producto.getAttribute('data-html');
+                try {
+                    const response = await fetch(htmlProducto);
+                    const text = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, 'text/html');
 
-                    const resultadoHTML = `
-                        <div class="resultado" onclick="window.location.href='${enlaceSeccion}'">
-                            <div>
-                                <h4>${tituloSeccion}</h4>
-                                <p>Sección relacionada con "${busqueda}"</p>
+                    // Buscar en el contenido del HTML
+                    if (doc.body.textContent.toLowerCase().includes(busqueda)) {
+                        resultadosEncontrados = true;
+                        const nombre = producto.querySelector('h3').textContent;
+                        const imagen = producto.querySelector('img').src;
+                        const descripcion = producto.querySelector('p').textContent;
+
+                        const resultadoHTML = `
+                            <div class="resultado" onclick="window.location.href='${htmlProducto}'">
+                                <img src="${imagen}" alt="${nombre}">
+                                <div>
+                                    <h4>${nombre}</h4>
+                                    <p>${descripcion}</p>
+                                </div>
                             </div>
-                        </div>
-                    `;
-                    resultadosBusqueda.innerHTML += resultadoHTML;
+                        `;
+                        resultadosBusqueda.innerHTML += resultadoHTML;
+                    }
+                } catch (error) {
+                    console.error(`Error al cargar ${htmlProducto}:`, error);
                 }
-            });
+            }
 
             if (resultadosEncontrados) {
                 resultadosBusqueda.style.display = 'block'; // Muestra el contenedor de resultados
@@ -694,6 +708,5 @@
             document.getElementById('form-resena').reset();
         });
     </script>
-
 </body>
 </html>
