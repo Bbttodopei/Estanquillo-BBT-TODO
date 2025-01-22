@@ -10,18 +10,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f9f9f9, #e6e6e6); /* Degradado suave */
-            color: #333; /* Texto oscuro */
+            background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
+            color: #333;
             line-height: 1.6;
         }
 
         /* Encabezado con banner */
         header {
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            height: 500px; /* Altura del encabezado */
-            overflow: hidden; /* Evita que la imagen se desborde */
+            height: 500px;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,19 +30,15 @@
         }
 
         header img {
-            width: 100%; /* La imagen ocupa todo el ancho */
-            height: 100%; /* La imagen ocupa toda la altura */
-            object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Animación de entrada */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Menú de navegación */
@@ -50,27 +46,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             padding: 10px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+            flex-wrap: wrap;
         }
         nav a {
-            color: #ff8c42; /* Color naranja */
+            color: #ff8c42;
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            border-radius: 30px; /* Bordes redondeados */
-            margin: 5px; /* Espacio entre botones */
+            border-radius: 30px;
+            margin: 5px;
         }
         nav a:hover {
-            background-color: #ff8c42; /* Naranja */
-            color: #ffffff; /* Texto blanco */
+            background-color: #ff8c42;
+            color: #ffffff;
             transform: translateY(-5px);
         }
 
@@ -78,26 +74,26 @@
         .barra-busqueda {
             display: flex;
             align-items: center;
-            margin-left: auto; /* Alinea la barra de búsqueda a la derecha */
+            margin-left: auto;
             padding: 0 20px;
-            position: relative; /* Para posicionar el contenedor de resultados */
+            position: relative;
         }
         .barra-busqueda input[type="text"] {
             padding: 10px;
-            border: 1px solid #ccc; /* Borde gris */
+            border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
-            width: 200px; /* Ancho inicial */
+            width: 200px;
             transition: width 0.3s ease;
         }
         .barra-busqueda input[type="text"]:focus {
-            width: 300px; /* Ancho al enfocar */
+            width: 300px;
             outline: none;
-            border-color: #ff8c42; /* Borde naranja al enfocar */
+            border-color: #ff8c42;
         }
         .barra-busqueda button {
-            background-color: #ff8c42; /* Naranja */
-            color: #ffffff; /* Texto blanco */
+            background-color: #ff8c42;
+            color: #ffffff;
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
@@ -106,31 +102,33 @@
             transition: background-color 0.3s ease;
         }
         .barra-busqueda button:hover {
-            background-color: #e67e22; /* Naranja más oscuro */
+            background-color: #e67e22;
         }
 
         /* Contenedor de resultados de búsqueda */
         .resultados-busqueda {
             position: absolute;
-            top: 50px; /* Debajo de la barra de búsqueda */
+            top: 50px;
             left: 0;
             width: 100%;
-            background-color: #ffffff; /* Fondo blanco */
+            max-height: 300px;
+            overflow-y: auto;
+            background-color: #ffffff;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            display: none; /* Oculto por defecto */
+            display: none;
         }
         .resultados-busqueda .resultado {
             padding: 10px;
-            border-bottom: 1px solid #eee; /* Separador entre resultados */
+            border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         .resultados-busqueda .resultado:hover {
-            background-color: #f9f9f9; /* Fondo gris claro al pasar el mouse */
+            background-color: #f9f9f9;
         }
         .resultados-busqueda .resultado img {
             width: 50px;
@@ -141,12 +139,12 @@
         .resultados-busqueda .resultado h4 {
             margin: 0;
             font-size: 1em;
-            color: #333; /* Texto oscuro */
+            color: #333;
         }
         .resultados-busqueda .resultado p {
             margin: 0;
             font-size: 0.9em;
-            color: #666; /* Texto gris */
+            color: #666;
         }
 
         /* Botones flotantes de redes sociales y ubicación */
@@ -165,7 +163,7 @@
             align-items: center;
             width: 50px;
             height: 50px;
-            border-radius: 50%; /* Forma circular */
+            border-radius: 50%;
             text-decoration: none;
             color: white;
             font-size: 1.2em;
@@ -177,16 +175,16 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
         }
         .boton-whatsapp {
-            background-color: #25d366; /* Color de WhatsApp */
+            background-color: #25d366;
         }
         .boton-facebook {
-            background-color: #1877f2; /* Color de Facebook */
+            background-color: #1877f2;
         }
         .boton-instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Gradiente de Instagram */
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
         .boton-ubicacion {
-            background-color: #ff8c42; /* Naranja */
+            background-color: #ff8c42;
         }
 
         /* Secciones */
@@ -195,15 +193,15 @@
             max-width: 1200px;
             margin: 0 auto;
             animation: slideUp 1s ease-in-out;
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
-            width: 90%; /* Ajuste para que las secciones no toquen los bordes */
+            width: 90%;
         }
         h2 {
             font-size: 2.5em;
-            color: #ff8c42; /* Naranja */
+            color: #ff8c42;
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -215,21 +213,15 @@
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #ff8c42; /* Naranja */
+            background-color: #ff8c42;
             margin: 10px auto 0;
             border-radius: 2px;
         }
 
         /* Animación de deslizamiento */
         @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         /* Texto de bienvenida centrado */
@@ -240,7 +232,7 @@
             margin: 0 auto;
             line-height: 1.8;
             animation: fadeIn 2.5s ease-in-out;
-            color: #555; /* Texto gris oscuro */
+            color: #555;
         }
 
         /* Productos */
@@ -251,7 +243,7 @@
             padding: 20px;
         }
         .producto {
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -276,16 +268,16 @@
         }
         .producto h3 {
             font-size: 1.5em;
-            color: #333; /* Texto oscuro */
+            color: #333;
             margin: 10px 0;
         }
         .producto p {
             font-size: 1.2em;
-            color: #666; /* Texto gris */
+            color: #666;
         }
         .producto button {
-            background-color: #ff8c42; /* Naranja */
-            color: #ffffff; /* Texto blanco */
+            background-color: #ff8c42;
+            color: #ffffff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -294,13 +286,13 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .producto button:hover {
-            background-color: #e67e22; /* Naranja más oscuro */
+            background-color: #e67e22;
             transform: scale(1.05);
         }
 
         /* Sección de Ubicación */
         #ubicacion {
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -318,7 +310,7 @@
 
         /* Sección de Reseñas */
         #reseñas {
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -334,25 +326,25 @@
         .formulario-resenas label {
             font-weight: bold;
             font-size: 1.1em;
-            color: #333; /* Texto oscuro */
+            color: #333;
         }
         .formulario-resenas input,
         .formulario-resenas textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc; /* Borde gris */
+            border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
-            background-color: #f9f9f9; /* Fondo gris claro */
-            color: #333; /* Texto oscuro */
+            background-color: #f9f9f9;
+            color: #333;
         }
         .formulario-resenas textarea {
-            resize: vertical; /* Permite redimensionar verticalmente */
+            resize: vertical;
             min-height: 100px;
         }
         .formulario-resenas button {
-            background-color: #ff8c42; /* Naranja */
-            color: #ffffff; /* Texto blanco */
+            background-color: #ff8c42;
+            color: #ffffff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -361,14 +353,14 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .formulario-resenas button:hover {
-            background-color: #e67e22; /* Naranja más oscuro */
+            background-color: #e67e22;
             transform: scale(1.05);
         }
 
         /* Pie de página */
         footer {
-            background-color: #ffffff; /* Fondo blanco */
-            color: #333; /* Texto oscuro */
+            background-color: #ffffff;
+            color: #333;
             text-align: center;
             padding: 30px 20px;
             margin-top: 40px;
@@ -380,7 +372,7 @@
             width: 80%;
             max-width: 600px;
             border-collapse: collapse;
-            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -390,17 +382,17 @@
             text-align: center;
         }
         .horarios th {
-            background-color: #ff8c42; /* Naranja */
-            color: #ffffff; /* Texto blanco */
+            background-color: #ff8c42;
+            color: #ffffff;
             font-size: 1.2em;
         }
         .horarios td {
-            background-color: #f9f9f9; /* Fondo gris claro */
-            color: #333; /* Texto oscuro */
+            background-color: #f9f9f9;
+            color: #333;
             font-size: 1.1em;
         }
         .horarios tr:nth-child(even) td {
-            background-color: #f1f1f1; /* Fondo gris más claro */
+            background-color: #f1f1f1;
         }
 
         /* Diseño responsive */
@@ -418,11 +410,11 @@
                 width: 100%;
             }
             .barra-busqueda {
-                width: 100%; /* La barra de búsqueda ocupa todo el ancho en móviles */
+                width: 100%;
                 margin: 10px 0;
             }
             .barra-busqueda input[type="text"] {
-                width: 100%; /* Ancho completo en móviles */
+                width: 100%;
             }
         }
     </style>
@@ -590,23 +582,8 @@
         </table>
     </footer>
 
-    <!-- Script para manejar el formulario de reseñas -->
+    <!-- Script para manejar el formulario de reseñas y la búsqueda -->
     <script>
-        document.getElementById('form-resena').addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita que el formulario se envíe
-
-            // Obtén los valores del formulario
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const reseña = document.getElementById('reseña').value;
-
-            // Aquí puedes agregar la lógica para enviar los datos a un servidor o mostrarlos en la página
-            alert(`Gracias, ${nombre}, por tu reseña.`);
-
-            // Limpia el formulario
-            document.getElementById('form-resena').reset();
-        });
-
         // Función para buscar productos
         function buscarProducto() {
             const busqueda = document.getElementById('buscar-producto').value.toLowerCase();
@@ -650,6 +627,13 @@
             }
         }
 
+        // Activar la búsqueda al presionar "Enter"
+        document.getElementById('buscar-producto').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                buscarProducto();
+            }
+        });
+
         // Oculta los resultados al hacer clic fuera de la barra de búsqueda
         document.addEventListener('click', function (event) {
             const barraBusqueda = document.querySelector('.barra-busqueda');
@@ -657,6 +641,35 @@
             if (!barraBusqueda.contains(event.target)) {
                 resultadosBusqueda.style.display = 'none';
             }
+        });
+
+        // Debounce para mejorar la eficiencia de la búsqueda
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        const buscarProductoDebounced = debounce(buscarProducto, 300);
+
+        document.getElementById('buscar-producto').addEventListener('input', buscarProductoDebounced);
+
+        // Manejo del formulario de reseñas
+        document.getElementById('form-resena').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe
+
+            // Obtén los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const reseña = document.getElementById('reseña').value;
+
+            // Aquí puedes agregar la lógica para enviar los datos a un servidor o mostrarlos en la página
+            alert(`Gracias, ${nombre}, por tu reseña.`);
+
+            // Limpia el formulario
+            document.getElementById('form-resena').reset();
         });
     </script>
 
