@@ -290,7 +290,7 @@
             transform: scale(1.05);
         }
 
-        /* Sección de Ubicación */
+        /* Sección de Ubicación -->
         #ubicacion {
             background-color: #ffffff;
             padding: 40px 20px;
@@ -308,7 +308,7 @@
             border-radius: 10px;
         }
 
-        /* Sección de Reseñas */
+        /* Sección de Reseñas -->
         #reseñas {
             background-color: #ffffff;
             padding: 40px 20px;
@@ -357,7 +357,7 @@
             transform: scale(1.05);
         }
 
-        /* Pie de página */
+        /* Pie de página -->
         footer {
             background-color: #ffffff;
             color: #333;
@@ -395,7 +395,7 @@
             background-color: #f1f1f1;
         }
 
-        /* Diseño responsive */
+        /* Diseño responsive -->
         @media (max-width: 768px) {
             .productos {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -585,7 +585,7 @@
     <!-- Script para manejar el formulario de reseñas y la búsqueda -->
     <script>
         // Función para buscar productos
-        function buscarProducto() {
+        async function buscarProducto() {
             const busqueda = document.getElementById('buscar-producto').value.toLowerCase();
             const productos = document.querySelectorAll('.producto');
             const resultadosBusqueda = document.getElementById('resultados-busqueda');
@@ -623,6 +623,38 @@
                     resultadosBusqueda.innerHTML += resultadoHTML;
                 }
             });
+
+            // Buscar en archivos HTML de productos
+            for (const producto of productos) {
+                const htmlProducto = producto.getAttribute('data-html');
+                try {
+                    const response = await fetch(htmlProducto);
+                    const text = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, 'text/html');
+
+                    // Buscar en el contenido del HTML
+                    if (doc.body.textContent.toLowerCase().includes(busqueda)) {
+                        resultadosEncontrados = true;
+                        const nombre = producto.querySelector('h3').textContent;
+                        const imagen = producto.querySelector('img').src;
+                        const descripcion = producto.querySelector('p').textContent;
+
+                        const resultadoHTML = `
+                            <div class="resultado" onclick="window.location.href='${htmlProducto}'">
+                                <img src="${imagen}" alt="${nombre}">
+                                <div>
+                                    <h4>${nombre}</h4>
+                                    <p>${descripcion}</p>
+                                </div>
+                            </div>
+                        `;
+                        resultadosBusqueda.innerHTML += resultadoHTML;
+                    }
+                } catch (error) {
+                    console.error(`Error al cargar ${htmlProducto}:`, error);
+                }
+            }
 
             if (resultadosEncontrados) {
                 resultadosBusqueda.style.display = 'block'; // Muestra el contenedor de resultados
