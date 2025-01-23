@@ -3,133 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aguardiente - BBT TODO</title>
+    <title>Catálogo de Aguardientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* Estilos CSS */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f8f8f8;
             color: #333;
             line-height: 1.6;
         }
-        h1 {
+
+        header {
+            background-color: #ff8c42;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            color: #ff8c42;
+        }
+
+        header h1 {
+            margin: 0;
             font-size: 2.5em;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        main {
+            padding: 20px;
+            padding-bottom: 60px; /* Para evitar que el footer cubra el contenido */
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
         .producto {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .item:hover {
+
+        .producto:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .item img {
+
+        .producto img {
             max-width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
         }
-        .item:hover img {
-            transform: scale(1.05);
-        }
-        .item h3 {
+
+        .producto h2 {
             font-size: 1.5em;
-            color: #333;
-            margin: 10px 0;
-            font-weight: bold;
-        }
-        .item p {
-            font-size: 1.2em;
-            color: #666;
-            margin: 10px 0;
-        }
-        .item button {
-            background-color: #ff8c42;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .item button:hover {
-            background-color: #e67e22;
-            transform: scale(1.05);
-        }
-        .volver {
-            text-align: center;
-            margin: 40px 0;
-        }
-        .volver a {
-            text-decoration: none;
+            margin: 15px 0;
             color: #ff8c42;
-            font-weight: bold;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid #ff8c42;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .volver a:hover {
+
+        .producto ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .producto ul li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .producto ul li a {
+            display: block;
+            background-color: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .producto ul li a:hover {
+            background-color: #128c7e;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .volver-inicio {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
             background-color: #ff8c42;
-            color: white;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content;
+            transition: background-color 0.3s ease;
+        }
+
+        .volver-inicio:hover {
+            background-color: #e64a19;
+        }
+
+        footer {
+            background-color: #ff8c42;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <h1>Aguardiente</h1>
-    <div class="producto">
-        <!-- Producto 1 -->
-        <div class="item">
-            <img src="aguardiente1.jpg" alt="Aguardiente Antioqueño">
-            <h3>Aguardiente Antioqueño</h3>
-            <p>$35.000</p>
-            <button onclick="comprar('Aguardiente Antioqueño')">Comprar</button>
-        </div>
-        <!-- Producto 2 -->
-        <div class="item">
-            <img src="aguardiente2.jpg" alt="Aguardiente Néctar">
-            <h3>Aguardiente Néctar</h3>
-            <p>$40.000</p>
-            <button onclick="comprar('Aguardiente Néctar')">Comprar</button>
-        </div>
-        <!-- Producto 3 -->
-        <div class="item">
-            <img src="aguardiente3.jpg" alt="Aguardiente Blanco">
-            <h3>Aguardiente Blanco</h3>
-            <p>$30.000</p>
-            <button onclick="comprar('Aguardiente Blanco')">Comprar</button>
-        </div>
-    </div>
-    <div class="volver">
-        <a href="index.html">Volver al inicio</a>
-    </div>
+    <header id="inicio">
+        <h1>Catálogo de Aguardientes</h1>
+    </header>
 
-    <script>
-        function comprar(producto) {
-            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
-            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
-            window.open(url, '_blank');
-        }
-    </script>
+    <main>
+        <section class="productos">
+            <!-- Aguardiente Antioqueño Tapa Azul -->
+            <div class="producto">
+                <img src="aguardiente_tapa_azul.jpg" alt="Aguardiente Antioqueño Tapa Azul">
+                <h2>Aguardiente Antioqueño Tapa Azul</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Antioqueño%20Tapa%20Azul%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$35.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Antioqueño%20Tapa%20Azul%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$60.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Antioqueño%20Tapa%20Azul%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$80.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Aguardiente Antioqueño Tapa Verde -->
+            <div class="producto">
+                <img src="aguardiente_tapa_verde.jpg" alt="Aguardiente Antioqueño Tapa Verde">
+                <h2>Aguardiente Antioqueño Tapa Verde</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Antioqueño%20Tapa%20Verde%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$35.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Antioqueño%20Tapa%20Verde%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$60.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Antioqueño%20Tapa%20Verde%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$80.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Aguardiente Amarillo -->
+            <div class="producto">
+                <img src="aguardiente_amarillo.jpg" alt="Aguardiente Amarillo">
+                <h2>Aguardiente Amarillo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Amarillo%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$30.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Amarillo%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$55.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Amarillo%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$75.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Aguardiente Blanco -->
+            <div class="producto">
+                <img src="aguardiente_blanco.jpg" alt="Aguardiente Blanco">
+                <h2>Aguardiente Blanco</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Blanco%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$30.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Blanco%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$50.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Blanco%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$70.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Aguardiente Cristal -->
+            <div class="producto">
+                <img src="aguardiente_cristal.jpg" alt="Aguardiente Cristal">
+                <h2>Aguardiente Cristal</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Cristal%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$28.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Aguardiente%20Cristal%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$48.000</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Botón de Volver al Inicio -->
+        <a href="index.html" class="volver-inicio">Volver al Inicio</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Catálogo de Aguardientes. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
