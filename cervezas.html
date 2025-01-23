@@ -3,140 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cervezas - BBT TODO</title>
+    <title>Catálogo de Cervezas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* Estilos CSS */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f8f8f8; /* Color de fondo original */
             color: #333;
             line-height: 1.6;
         }
-        h1 {
+
+        header {
+            background-color: #ff8c42; /* Naranja original del encabezado */
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            color: #ff8c42;
+        }
+
+        header h1 {
+            margin: 0;
             font-size: 2.5em;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        main {
+            padding: 20px;
+            padding-bottom: 60px; /* Para evitar que el footer cubra el contenido */
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
         .producto {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .item:hover {
+
+        .producto:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .item img {
+
+        .producto img {
             max-width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
         }
-        .item:hover img {
-            transform: scale(1.05);
-        }
-        .item h3 {
+
+        .producto h2 {
             font-size: 1.5em;
-            color: #333;
-            margin: 10px 0;
-            font-weight: bold;
+            margin: 15px 0;
+            color: #ff8c42; /* Naranja original para los títulos */
         }
-        .item p {
-            font-size: 1.2em;
-            color: #666;
-            margin: 10px 0;
+
+        .producto ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .item button {
-            background-color: #ff8c42;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+
+        .producto ul li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .item button:hover {
-            background-color: #e67e22;
-            transform: scale(1.05);
-        }
-        .volver {
-            text-align: center;
-            margin: 40px 0;
-        }
-        .volver a {
+
+        .producto ul li a {
+            display: block;
+            background-color: #25d366; /* Color verde de WhatsApp */
+            color: #fff;
             text-decoration: none;
-            color: #ff8c42;
-            font-weight: bold;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid #ff8c42;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .volver a:hover {
-            background-color: #ff8c42;
-            color: white;
+
+        .producto ul li a:hover {
+            background-color: #128c7e; /* Color verde oscuro de WhatsApp al pasar el mouse */
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .volver-inicio {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff8c42; /* Naranja original */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content;
+            transition: background-color 0.3s ease;
+        }
+
+        .volver-inicio:hover {
+            background-color: #e64a19; /* Naranja oscuro al pasar el mouse */
+        }
+
+        footer {
+            background-color: #ff8c42; /* Naranja original del footer */
+            color: #fff;
+            text-align: center;
+            padding: 5px 0; /* Reducimos el padding para hacer el footer más pequeño */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px; /* Reducimos el tamaño del texto */
         }
     </style>
 </head>
 <body>
-    <h1>Cervezas</h1>
-    <div class="producto">
-        <!-- Producto 1 -->
-        <div class="item">
-            <img src="cerveza1.jpg" alt="Cerveza Águila">
-            <h3>Cerveza Águila</h3>
-            <p>$10.000</p>
-            <button onclick="comprar('Cerveza Águila')">Comprar</button>
-        </div>
-        <!-- Producto 2 -->
-        <div class="item">
-            <img src="cerveza2.jpg" alt="Cerveza Poker">
-            <h3>Cerveza Poker</h3>
-            <p>$9.000</p>
-            <button onclick="comprar('Cerveza Poker')">Comprar</button>
-        </div>
-        <!-- Producto 3 -->
-        <div class="item">
-            <img src="cerveza3.jpg" alt="Cerveza Corona">
-            <h3>Cerveza Corona</h3>
-            <p>$15.000</p>
-            <button onclick="comprar('Cerveza Corona')">Comprar</button>
-        </div>
-        <!-- Producto 4 -->
-        <div class="item">
-            <img src="cerveza4.jpg" alt="Cerveza Heineken">
-            <h3>Cerveza Heineken</h3>
-            <p>$18.000</p>
-            <button onclick="comprar('Cerveza Heineken')">Comprar</button>
-        </div>
-    </div>
-    <div class="volver">
-        <a href="index.html">Volver al inicio</a>
-    </div>
+    <header id="inicio">
+        <h1>Catálogo de Cervezas</h1>
+    </header>
 
-    <script>
-        function comprar(producto) {
-            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
-            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
-            window.open(url, '_blank');
-        }
-    </script>
+    <main>
+        <section class="productos">
+            <!-- Cerveza Poker -->
+            <div class="producto">
+                <img src="poker.jpg" alt="Cerveza Poker">
+                <h2>Cerveza Poker</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Poker%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$3.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Poker%20500%20ml" target="_blank">500 ml</a>
+                        <div class="precio">$4.500</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Poker%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$8.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Pilsen -->
+            <div class="producto">
+                <img src="pilsen.jpg" alt="Cerveza Pilsen">
+                <h2>Cerveza Pilsen</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Pilsen%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$3.500</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Pilsen%20500%20ml" target="_blank">500 ml</a>
+                        <div class="precio">$5.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Pilsen%201000%20ml" target="_blank">1000 ml</a>
+                        <div class="precio">$9.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Águila -->
+            <div class="producto">
+                <img src="aguila.jpg" alt="Cerveza Águila">
+                <h2>Cerveza Águila</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Águila%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$3.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Águila%20Light%20330%20ml" target="_blank">330 ml (Light)</a>
+                        <div class="precio">$3.200</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Águila%20500%20ml" target="_blank">500 ml</a>
+                        <div class="precio">$4.500</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Club Colombia Dorada -->
+            <div class="producto">
+                <img src="club_colombia_dorada.jpg" alt="Cerveza Club Colombia Dorada">
+                <h2>Cerveza Club Colombia Dorada</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Club%20Colombia%20Dorada%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$4.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Club%20Colombia%20Dorada%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$8.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Club Colombia Roja -->
+            <div class="producto">
+                <img src="club_colombia_roja.jpg" alt="Cerveza Club Colombia Roja">
+                <h2>Cerveza Club Colombia Roja</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Club%20Colombia%20Roja%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$4.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Club Colombia Negra -->
+            <div class="producto">
+                <img src="club_colombia_negra.jpg" alt="Cerveza Club Colombia Negra">
+                <h2>Cerveza Club Colombia Negra</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Club%20Colombia%20Negra%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$4.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Corona -->
+            <div class="producto">
+                <img src="corona.jpg" alt="Cerveza Corona">
+                <h2>Cerveza Corona</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Corona%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$6.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Stella Artois -->
+            <div class="producto">
+                <img src="stella_artois.jpg" alt="Cerveza Stella Artois">
+                <h2>Cerveza Stella Artois</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Stella%20Artois%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$7.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Heineken -->
+            <div class="producto">
+                <img src="heineken.jpg" alt="Cerveza Heineken">
+                <h2>Cerveza Heineken</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Heineken%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$7.500</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Redds -->
+            <div class="producto">
+                <img src="redds.jpg" alt="Cerveza Redds">
+                <h2>Cerveza Redds</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Redds%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$5.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza 3 Cordilleras Rosada -->
+            <div class="producto">
+                <img src="3_cordilleras_rosada.jpg" alt="Cerveza 3 Cordilleras Rosada">
+                <h2>Cerveza 3 Cordilleras Rosada</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%203%20Cordilleras%20Rosada%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$6.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza 3 Cordilleras Mestiza -->
+            <div class="producto">
+                <img src="3_cordilleras_mestiza.jpg" alt="Cerveza 3 Cordilleras Mestiza">
+                <h2>Cerveza 3 Cordilleras Mestiza</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%203%20Cordilleras%20Mestiza%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$6.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cerveza Budweiser -->
+            <div class="producto">
+                <img src="budweiser.jpg" alt="Cerveza Budweiser">
+                <h2>Cerveza Budweiser</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Cerveza%20Budweiser%20330%20ml" target="_blank">330 ml</a>
+                        <div class="precio">$5.500</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Botón de Volver al Inicio -->
+        <a href="index.html" class="volver-inicio">Volver al Inicio</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Catálogo de Cervezas. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
