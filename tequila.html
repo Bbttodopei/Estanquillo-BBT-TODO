@@ -3,140 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tequila - BBT TODO</title>
+    <title>Catálogo de Tequilas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* Estilos CSS */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f8f8f8; /* Color de fondo original */
             color: #333;
             line-height: 1.6;
         }
-        h1 {
+
+        header {
+            background-color: #ff8c42; /* Naranja original del encabezado */
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-            color: #ff8c42;
+        }
+
+        header h1 {
+            margin: 0;
             font-size: 2.5em;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        main {
+            padding: 20px;
+            padding-bottom: 60px; /* Para evitar que el footer cubra el contenido */
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
         .producto {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .item:hover {
+
+        .producto:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .item img {
+
+        .producto img {
             max-width: 100%;
             border-radius: 10px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
         }
-        .item:hover img {
-            transform: scale(1.05);
-        }
-        .item h3 {
+
+        .producto h2 {
             font-size: 1.5em;
-            color: #333;
-            margin: 10px 0;
-            font-weight: bold;
+            margin: 15px 0;
+            color: #ff8c42; /* Naranja original para los títulos */
         }
-        .item p {
-            font-size: 1.2em;
-            color: #666;
-            margin: 10px 0;
+
+        .producto ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .item button {
-            background-color: #ff8c42;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+
+        .producto ul li {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .item button:hover {
-            background-color: #e67e22;
-            transform: scale(1.05);
-        }
-        .volver {
-            text-align: center;
-            margin: 40px 0;
-        }
-        .volver a {
+
+        .producto ul li a {
+            display: block;
+            background-color: #25d366; /* Color verde de WhatsApp */
+            color: #fff;
             text-decoration: none;
-            color: #ff8c42;
-            font-weight: bold;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid #ff8c42;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .volver a:hover {
-            background-color: #ff8c42;
-            color: white;
+
+        .producto ul li a:hover {
+            background-color: #128c7e; /* Color verde oscuro de WhatsApp al pasar el mouse */
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .volver-inicio {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ff8c42; /* Naranja original */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content;
+            transition: background-color 0.3s ease;
+        }
+
+        .volver-inicio:hover {
+            background-color: #e64a19; /* Naranja oscuro al pasar el mouse */
+        }
+
+        footer {
+            background-color: #ff8c42; /* Naranja original del footer */
+            color: #fff;
+            text-align: center;
+            padding: 5px 0; /* Reducimos el padding para hacer el footer más pequeño */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px; /* Reducimos el tamaño del texto */
         }
     </style>
 </head>
 <body>
-    <h1>Tequila</h1>
-    <div class="producto">
-        <!-- Producto 1 -->
-        <div class="item">
-            <img src="tequila1.jpg" alt="Tequila José Cuervo">
-            <h3>Tequila José Cuervo</h3>
-            <p>$70.000</p>
-            <button onclick="comprar('Tequila José Cuervo')">Comprar</button>
-        </div>
-        <!-- Producto 2 -->
-        <div class="item">
-            <img src="tequila2.jpg" alt="Tequila Don Julio">
-            <h3>Tequila Don Julio</h3>
-            <p>$150.000</p>
-            <button onclick="comprar('Tequila Don Julio')">Comprar</button>
-        </div>
-        <!-- Producto 3 -->
-        <div class="item">
-            <img src="tequila3.jpg" alt="Tequila Patrón">
-            <h3>Tequila Patrón</h3>
-            <p>$180.000</p>
-            <button onclick="comprar('Tequila Patrón')">Comprar</button>
-        </div>
-        <!-- Producto 4 -->
-        <div class="item">
-            <img src="tequila4.jpg" alt="Tequila Herradura">
-            <h3>Tequila Herradura</h3>
-            <p>$200.000</p>
-            <button onclick="comprar('Tequila Herradura')">Comprar</button>
-        </div>
-    </div>
-    <div class="volver">
-        <a href="index.html">Volver al inicio</a>
-    </div>
+    <header id="inicio">
+        <h1>Catálogo de Tequilas</h1>
+    </header>
 
-    <script>
-        function comprar(producto) {
-            const mensaje = `Hola, estoy interesado en comprar: ${producto}.`;
-            const url = `https://api.whatsapp.com/send/?phone=573245519976&text=${encodeURIComponent(mensaje)}&type=phone_number&app_absent=0`;
-            window.open(url, '_blank');
-        }
-    </script>
+    <main>
+        <section class="productos">
+            <!-- Tequila Jose Cuervo -->
+            <div class="producto">
+                <img src="jose_cuervo.jpg" alt="Tequila Jose Cuervo">
+                <h2>Tequila Jose Cuervo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Jose%20Cuervo%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$70.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Jose%20Cuervo%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$130.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Jimador Reposado -->
+            <div class="producto">
+                <img src="jimador_reposado.jpg" alt="Tequila Jimador Reposado">
+                <h2>Tequila Jimador Reposado</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Jimador%20Reposado%20375%20ml" target="_blank">375 ml</a>
+                        <div class="precio">$75.000</div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Jimador%20Reposado%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$140.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Jimador Blanco -->
+            <div class="producto">
+                <img src="jimador_blanco.jpg" alt="Tequila Jimador Blanco">
+                <h2>Tequila Jimador Blanco</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Jimador%20Blanco%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$140.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Jimador Cristalino -->
+            <div class="producto">
+                <img src="jimador_cristalino.jpg" alt="Tequila Jimador Cristalino">
+                <h2>Tequila Jimador Cristalino</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Jimador%20Cristalino%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$150.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Don Julio Añejo -->
+            <div class="producto">
+                <img src="don_julio_anejo.jpg" alt="Tequila Don Julio Añejo">
+                <h2>Tequila Don Julio Añejo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Don%20Julio%20Añejo%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$250.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Don Julio Blanco -->
+            <div class="producto">
+                <img src="don_julio_blanco.jpg" alt="Tequila Don Julio Blanco">
+                <h2>Tequila Don Julio Blanco</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Don%20Julio%20Blanco%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$230.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Don Julio Reposado -->
+            <div class="producto">
+                <img src="don_julio_reposado.jpg" alt="Tequila Don Julio Reposado">
+                <h2>Tequila Don Julio Reposado</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Don%20Julio%20Reposado%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$240.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Don Julio 70 -->
+            <div class="producto">
+                <img src="don_julio_70.jpg" alt="Tequila Don Julio 70">
+                <h2>Tequila Don Julio 70</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Don%20Julio%2070%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$260.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Patrón Silver -->
+            <div class="producto">
+                <img src="patron_silver.jpg" alt="Tequila Patrón Silver">
+                <h2>Tequila Patrón Silver</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Patrón%20Silver%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$180.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Patrón Reposado -->
+            <div class="producto">
+                <img src="patron_reposado.jpg" alt="Tequila Patrón Reposado">
+                <h2>Tequila Patrón Reposado</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Patrón%20Reposado%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$190.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Patrón Añejo -->
+            <div class="producto">
+                <img src="patron_anejo.jpg" alt="Tequila Patrón Añejo">
+                <h2>Tequila Patrón Añejo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Patrón%20Añejo%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$200.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila 1800 Reposado -->
+            <div class="producto">
+                <img src="1800_reposado.jpg" alt="Tequila 1800 Reposado">
+                <h2>Tequila 1800 Reposado</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%201800%20Reposado%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$160.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila 1800 Añejo -->
+            <div class="producto">
+                <img src="1800_anejo.jpg" alt="Tequila 1800 Añejo">
+                <h2>Tequila 1800 Añejo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%201800%20Añejo%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$170.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila 1800 Silver -->
+            <div class="producto">
+                <img src="1800_silver.jpg" alt="Tequila 1800 Silver">
+                <h2>Tequila 1800 Silver</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%201800%20Silver%20750%20ml" target="_blank">750 ml</a>
+                        <div class="precio">$150.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Gran Centenario Reposado -->
+            <div class="producto">
+                <img src="gran_centenario_reposado.jpg" alt="Tequila Gran Centenario Reposado">
+                <h2>Tequila Gran Centenario Reposado</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Gran%20Centenario%20Reposado%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$180.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Gran Centenario Añejo -->
+            <div class="producto">
+                <img src="gran_centenario_anejo.jpg" alt="Tequila Gran Centenario Añejo">
+                <h2>Tequila Gran Centenario Añejo</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Gran%20Centenario%20Añejo%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$190.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Gran Centenario Plata -->
+            <div class="producto">
+                <img src="gran_centenario_plata.jpg" alt="Tequila Gran Centenario Plata">
+                <h2>Tequila Gran Centenario Plata</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Gran%20Centenario%20Plata%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$170.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Olmeca Reposado -->
+            <div class="producto">
+                <img src="olmeca_reposado.jpg" alt="Tequila Olmeca Reposado">
+                <h2>Tequila Olmeca Reposado</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Olmeca%20Reposado%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$140.000</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tequila Olmeca Blanco -->
+            <div class="producto">
+                <img src="olmeca_blanco.jpg" alt="Tequila Olmeca Blanco">
+                <h2>Tequila Olmeca Blanco</h2>
+                <p>Disponible en:</p>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20comprar%20Tequila%20Olmeca%20Blanco%20700%20ml" target="_blank">700 ml</a>
+                        <div class="precio">$130.000</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Botón de Volver al Inicio -->
+        <a href="index.html" class="volver-inicio">Volver al Inicio</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Catálogo de Tequilas. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
